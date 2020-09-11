@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -34,9 +34,9 @@ const StyledInput = styled.input`
 `;
 
 export default function SearchBar({onChangeInput, text}) {
-  const handleOnChange = (e) => {
+  const handleOnChange = useCallback((e) => {
     onChangeInput(e.target.value);
-  }
+  }, [onChangeInput]);
 
   return  (
     <form>

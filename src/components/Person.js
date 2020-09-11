@@ -48,7 +48,7 @@ const FilmsSection = styled.section`
 `;
 
 
-export default function Person( {match} ) {
+export default function Person() {
   const [person, setPerson] = useState('');
   let {personId} = useParams();
 

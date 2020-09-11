@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter, Route, Switch} from "react-router-dom";
 import styled, {ThemeProvider} from "styled-components";
 
 import './App.css';
@@ -7,9 +7,9 @@ import './App.css';
 import {darkTheme, lightTheme} from "./themes/themedObjects";
 import ThemesToggle from "./themes/ThemesToggle";
 
-import SearchBar from "./components/SearchBar.js";
-import People from "./components/People.js";
-import Person from "./components/Person.js";
+import SearchBar from "./components/SearchBar";
+import People from "./components/People";
+import Person from "./components/Person";
 
 const FLEX_CENTER = `
   display: flex;
@@ -24,8 +24,6 @@ const MAX_SPACE = `
 `;
 
 const MainWrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
-
   ${MAX_SPACE};
   
   font-family: 'Noto Sans JP', sans-serif;
@@ -125,7 +123,7 @@ export default function App() {
       <MainWrapper>
         <ThemesToggle onClick={themeChange}>{theme.toggleName}</ThemesToggle>
 
-          <Router basename={process.env.PUBLIC_URL}>
+          <HashRouter basename={process.env.PUBLIC_URL}>
             <Switch>
 
               <Route path="/" exact>
@@ -152,7 +150,7 @@ export default function App() {
               </Route>
 
             </Switch>
-          </Router>
+          </HashRouter>
       </MainWrapper>
     </ThemeProvider>
   )
