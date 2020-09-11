@@ -125,7 +125,7 @@ export default function App() {
       <MainWrapper>
         <ThemesToggle onClick={themeChange}>{theme.toggleName}</ThemesToggle>
 
-          <HashRouter>
+          <HashRouter basename="/">
             <Switch>
 
               <Route path="/" exact>

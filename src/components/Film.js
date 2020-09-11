@@ -46,7 +46,7 @@ export default function Film() {
       }).catch(console.log);
   }, [setFilm, filmId]);
 
-  if (!film) return <div>Loading...</div>;
+  if (!film) return <div className="loading">Loading...</div>;
 
   return (
      <FilmContainer>
