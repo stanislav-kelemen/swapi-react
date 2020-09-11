@@ -61,6 +61,9 @@ export default function Person( {match} ) {
 
   if (!person) return <div className='loading'>Loading...</div>;
 
+  // fix mixed content errors on GitHub pages which occur due to insecure http requests
+  const filmsUrls = person.films.map(str => str.replace('http', 'https'));
+
   return (
     <Switch>
 
@@ -99,7 +102,7 @@ export default function Person( {match} ) {
 
             <FilmsSection>
               <h3>Films with {person.name}</h3>
-              <FilmsList personId={personId} filmsUrls={person.films}/>
+              <FilmsList personId={personId} filmsUrls={filmsUrls} />
             </FilmsSection>
 
           </PersonInfoPage>
