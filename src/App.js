@@ -24,6 +24,8 @@ const MAX_SPACE = `
 `;
 
 const MainWrapper = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
+
   ${MAX_SPACE};
   
   font-family: 'Noto Sans JP', sans-serif;
@@ -123,7 +125,7 @@ export default function App() {
       <MainWrapper>
         <ThemesToggle onClick={themeChange}>{theme.toggleName}</ThemesToggle>
 
-          <HashRouter basename={process.env.PUBLIC_URL}>
+          <HashRouter>
             <Switch>
 
               <Route path="/" exact>
