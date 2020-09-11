@@ -7,9 +7,9 @@ import './App.css';
 import {darkTheme, lightTheme} from "./themes/themedObjects";
 import ThemesToggle from "./themes/ThemesToggle";
 
-import SearchBar from "./components/SearchBar";
-import People from "./components/People";
-import Person from "./components/Person";
+import SearchBar from "./components/SearchBar.js";
+import People from "./components/People.js";
+import Person from "./components/Person.js";
 
 const FLEX_CENTER = `
   display: flex;
