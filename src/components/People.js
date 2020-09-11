@@ -3,7 +3,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom';
 
 export default function People({filterPhrase}) {
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState('');
 
   useEffect(() => {
     axios.get('https://swapi.dev/api/people/')
@@ -30,7 +30,7 @@ export default function People({filterPhrase}) {
   }, []);
 
 
-  if (!people) return <div className='loading'>Loading...</div>;
+  if (!people) return <div>Loading...</div>;
 
 
   return (
