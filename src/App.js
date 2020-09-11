@@ -4,8 +4,8 @@ import styled, {ThemeProvider} from "styled-components";
 
 import './App.css';
 
-import {darkTheme, lightTheme} from "./themes/themedObjects";
-import ThemesToggle from "./themes/ThemesToggle";
+// import {darkTheme, lightTheme} from "./themes/themedObjects";
+// import ThemesToggle from "./themes/ThemesToggle";
 
 import SearchBar from "./components/SearchBar";
 import People from "./components/People";
@@ -22,6 +22,69 @@ const MAX_SPACE = `
   width: 100%;
   height: 100%
 `;
+
+const ThemesToggle = styled.button`
+  position: absolute;
+  z-index: 1000;
+
+  top: 15px;
+  left: 15px;
+
+  width: 70px;
+  height: 30px;
+  
+  background-color: ${props => props.theme.elemBackgroundColor};
+  
+  font-family: inherit;
+  font-size: 1.01em;
+  font-weight: 300;
+  color: ${props => props.theme.blackWhite};
+  
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid ${props => props.theme.blueOrange};
+  box-shadow: 0 0 3px 1px ${props => props.theme.blueOrange};
+`;
+
+
+const ORANGISH = '#cb762b';
+const BLUISH = '#249b79';
+
+const darkTheme = {
+  toggleName: 'Light',
+
+  backgroundColor: '#151C29',
+  elemBackgroundColor: '#1E2736',
+
+  fontWeight: '300',
+
+  orangeBlue: BLUISH,
+  blueOrange: ORANGISH,
+
+  blackWhite: 'white',
+
+  searchBar: {
+    boxShadow: 'none',
+  }
+};
+
+const lightTheme = {
+  toggleName: 'Dark',
+
+  backgroundColor: '',
+  elemBackgroundColor: 'white',
+
+  fontWeight: '400',
+
+  orangeBlue: ORANGISH,
+  blueOrange: BLUISH,
+
+  blackWhite: 'black',
+
+  searchBar: {
+    boxShadow: '0 0 1px 1px grey',
+  }
+};
 
 const MainWrapper = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
