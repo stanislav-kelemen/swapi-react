@@ -125,7 +125,7 @@ export default function App() {
       <MainWrapper>
         <ThemesToggle onClick={themeChange}>{theme.toggleName}</ThemesToggle>
 
-          <HashRouter>
+          <HashRouter basename={process.env.PUBLIC_URL}>
             <Switch>
 
               <Route path="/" exact>
