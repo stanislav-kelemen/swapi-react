@@ -24,8 +24,6 @@ const MAX_SPACE = `
 `;
 
 const MainWrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
-
   ${MAX_SPACE};
   
   font-family: 'Noto Sans JP', sans-serif;
