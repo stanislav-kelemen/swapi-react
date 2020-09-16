@@ -2,4 +2,4 @@
 
 simple react app using The Staw Wars Api
 
-check online at https://stanislav-kelemen.github.io/swapi-react
+check it online at https://stanislav-kelemen.github.io/swapi-react
