@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useParams} from 'react-router-dom';
-import styled from 'styled-components';
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
 const FLEX_CENTER = `
   display: flex;
@@ -18,11 +18,12 @@ const FilmContainer = styled.article`
   height: 70%;
 
   flex-direction: column;
-  
+
   text-align: center;
-      
-  .crawl { width: 70%; }
-   
+
+  .crawl {
+    width: 70%;
+  }
 `;
 
 const FilmDetails = styled.div`
@@ -31,27 +32,29 @@ const FilmDetails = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
   text-align: center;
 `;
 
 export default function Film() {
-  const [film, setFilm] = useState('');
-  let {filmId} =  useParams();
+  const [film, setFilm] = useState("");
+  let { filmId } = useParams();
 
   useEffect(() => {
-    axios.get(`https://swapi.dev/api/films/${filmId}/`)
-      .then(result => {
+    axios
+      .get(`https://swapi.dev/api/films/${filmId}/`)
+      .then((result) => {
         setFilm(result.data);
-      }).catch(console.log);
+      })
+      .catch(console.log);
   }, [setFilm, filmId]);
 
   if (!film) return <div className="loading">Loading...</div>;
 
   return (
-     <FilmContainer>
+    <FilmContainer>
       <h1>{String(film.title).toUpperCase()}</h1>
-      <div className={'crawl'}>
+      <div className={"crawl"}>
         <h3>Opening crawl</h3>
         <p>{film.opening_crawl}</p>
       </div>

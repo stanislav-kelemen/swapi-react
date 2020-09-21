@@ -1,13 +1,13 @@
-import React, {useCallback} from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledInput = styled.input`
   position: relative;
 
   height: 40px;
   width: 100%;
-  
-  background-color: ${props => props.theme.elemBackgroundColor};
+
+  background-color: ${(props) => props.theme.elemBackgroundColor};
 
   font-family: inherit;
   color: inherit;
@@ -17,38 +17,33 @@ const StyledInput = styled.input`
 
   border: none;
   border-radius: 20px;
-  box-shadow: ${props => props.theme.searchBar.boxShadow};
-  
+  box-shadow: ${(props) => props.theme.searchBar.boxShadow};
+
   margin-bottom: 30px;
-  
+
   &:focus {
     border: none;
     outline: none;
-    box-shadow: 0 0 1px 1px ${props => props.theme.orangeBlue},
-                0 0 5px 1px ${props => props.theme.orangeBlue};
+    box-shadow: 0 0 1px 1px ${(props) => props.theme.orangeBlue},
+      0 0 5px 1px ${(props) => props.theme.orangeBlue};
   }
-  
-  &::placeholder { 
-   color: ${props => props.theme.orangeBlue}; 
+
+  &::placeholder {
+    color: ${(props) => props.theme.orangeBlue};
   }
 `;
 
-export default function SearchBar({onChangeInput, text}) {
-  const handleOnChange = useCallback((e) => {
-    onChangeInput(e.target.value);
-  }, [onChangeInput]);
+const SearchBar = ({ onChangeInput, text }) => (
+  <form>
+    <StyledInput
+      onFocus={(e) => (e.target.placeholder = "")}
+      onBlur={(e) => (e.target.placeholder = e.target.value || "Search")}
+      type="text"
+      placeholder="Search"
+      value={text}
+      onChange={(e) => onChangeInput(e.target.value)}
+    />
+  </form>
+);
 
-  return  (
-    <form>
-      <StyledInput
-        onFocus={(e) => e.target.placeholder = ''}
-        onBlur={(e) => e.target.placeholder = e.target.value || 'Search'}
-
-        type="text"
-        placeholder="Search"
-        value={text}
-        onChange={handleOnChange}
-      />
-    </form>
-  );
-}
+export default SearchBar;
